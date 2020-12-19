@@ -26,5 +26,15 @@ Beethoven piano sonatas are converted into natural language sequences during the
 We can see that the proposed mLSTM model with Softmax regression can achieve the classification accuracy of 90% in average, which indicates that mLSTM model is effective in feature extraction, and the C-vectors do contain music characteristics. So what exactly is in the C-vector? I didn't figure this out, but we can have a closer look.
 
 ## Analysis
+Average C-vector: We calculate the average vector of the C-vectors generated from samples of each period (by averaging the elements of the corresponding positions in the vectors), and plot the histogram of the average C-vectors in blue, as shown in Fig. 6 below. The corresponding probably density curve of each average vector by kernel density estimation is also drawn, shown as orange solid lines. 
 
-We calculate the average vector of the C-vectors generated from samples of each period (by averaging the elements of the corresponding positions in the vectors), and plot the histogram of the average C-vectors in blue, as shown in Fig. 6 below. The corresponding probably density curve of each average vector by kernel density estimation is also drawn, shown as orange solid lines. 
+The difference of the histogram of average C-vectors from each period is discernable. The middle period has the narrowest distribution, while the late period has the widest distribution. 
+
+The best test set (test set with the highest accuracy): 23 early samples, 22 middle samples and 24 late samples are correctly classified in the best test set. The histograms of the C-vectors from the same period are overlaid, and the probably density curves by kernel density estimation are drawn for each, the results are shown in Fig. 7.
+
+Seen from the histograms and the probably density curves of C-vectors of both average ones and the best test set, it is obvious that C-vectors from early period and middle period are more similarly distributed, while those of the late period show more differences. This can be explained that the sonatas from early and middle period are very similar in character, so it is a bit harder to distinguish between them. The sonatas from late period are very distinctive and easy to be separated. The confusion matrix in Table 2 also verify this as one early sample is wrongly classified as middle work and vice versa, while all late samples are correctly classified.
+
+While the C-vectors from the mLSTM output do possess some characteristic information of sonata samples, and the information can be later discerned by the Softmax regression process, however, at this stage, we cannot correlate exactly the musical and compositional information in the sonata (in MIDI) with the element values in the C-vector. Nevertheless, the relationship between the C-vectors and the corresponding music samples are interesting and observable, and further investigation is worthwhile to proceed.
+
+
+### Thank you for reading!
