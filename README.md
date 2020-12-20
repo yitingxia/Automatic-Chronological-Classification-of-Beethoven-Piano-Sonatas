@@ -1,5 +1,5 @@
 # Automatic Chronological Classification of Beethoven's Piano Sonatas
-<font size=18 >piano</font> piano
+<font size=20 >piano</font> 
 > Beethoven’s piano sonatas can be classified into early works, middle works and late works according to their composition periods. The process of  using deep learning networks to complete the chronological classification task are as follows:
 >
 > 1. Pre-processing: Convert the MIDI files of Beethoven piano sonatas into natural language sequences.
@@ -20,15 +20,6 @@ Similar data representation scheme in [12] is adopted to convert the MIDI files 
 For example, the first measure from Beethoven Piano Sonata No.9 in E Major (Op.14 No.1) movement 2, as illustrated in Fig. 1, can be transformed into the natural language sequence as follows:
 
 > t_80 v_64 d_quarter_1 n_47 v_64 d_half_1 n_50 v_64 d_half_1 n_54 v_64 d_quarter_1 n_59 . . . . . . v_64 d_eighth_0 n_46 v_64 d_eighth_0 n_58 . . v_64 d_quarter_0 n_47 v_64 d_quarter_0 n_59 . . . .
-
-
-
-
-
-
-
-
-
 
 
 ## mLSTM Model
