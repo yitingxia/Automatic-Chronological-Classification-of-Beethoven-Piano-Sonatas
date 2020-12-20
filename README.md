@@ -22,6 +22,7 @@ For example, the first measure from Beethoven Piano Sonata No.9 in E Major (Op.1
 > t_80 v_64 d_quarter_1 n_47 v_64 d_half_1 n_50 v_64 d_half_1 n_54 v_64 d_quarter_1 n_59 . . . . . . v_64 d_eighth_0 n_46 v_64 d_eighth_0 n_58 . . v_64 d_quarter_0 n_47 v_64 d_quarter_0 n_59 . . . .
 
 
+
 ## mLSTM Model
 After pre-processing, MIDI files were converted into natural language sequences. Feeded by the character in the sequence of the current time step, the mLSTM model is trained to predict the character of the next time step. This is the training process of the mLSTM model. 
 It is notable that once the the model is well-trained, by passing a whole music sample (here it is a sequence of characters) into the trained mLSTM model, the vector involved in the final predicting process (the final hidden state) can be assumed to have the characteristics of this music sample (I will explain this in the following sections). Let's call this vector the "Characteristic-vector", namely, the "C-vector".
