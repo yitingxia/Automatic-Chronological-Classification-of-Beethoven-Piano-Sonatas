@@ -3,14 +3,14 @@
 > Beethoven’s piano sonatas can be classified into early works, middle works and late works according to their composition periods. The process of  using deep learning networks to complete the chronological classification task are as follows:
 >
 > 1. Pre-processing: Convert the MIDI files of Beethoven piano sonatas into natural language sequences.
-> 2. mLSTM (multiplicative Long Short Term Memory) Model: Generate a characteristic vector (named C-vector with 4096 elements) of each sample.
+> 2. mLSTM (multiplicative Long Short Term Memory) Model: Generate a characteristic vector (named C-vector) of each sample.
 > 3. Softmax Regression: Classify each C-vector.
 >
 > The predicted labels of the Softmax Regression are the results of this classification task.
 
 
 ## Pre-processing
-Similar data representation scheme in [12] is adopted to convert the sonatas' MIDI files into natural language sequences in sequential order. The representation scheme is listed as follows:
+Similar data representation scheme in [12] is adopted to convert the MIDI files of sonatas into natural language sequences in sequential order. The representation scheme is listed as follows:
 - “n_[pitch]” : pitch is an integer between 0 and 127 (inclusive), namely, pitch=1, 2,...,127.
 - “d_[duration]_[dot]” : duration can be breve, whole, half, quarter, eighth, sixteenth, and thirty-second notes; dot can be 0, 1, 2, 3.
 - “v_[velocity]” : velocity is a multiple of 4 between 4 and 128 (inclusive), namely, velocity=4, 8,..., 128.
@@ -25,6 +25,7 @@ For example, the first measure from Beethoven Piano Sonata No.9 in E Major (Op.1
 
 ## mLSTM Model
 After pre-processing, MIDI files were converted into natural language sequences. Feeded by the character in the sequence of the current time step, the mLSTM model is trained to predict the character of the next time step. This is the training process of the mLSTM model. 
+
 It is notable that once the the model is well-trained, by passing a whole music sample (here it is a sequence of characters) into the trained mLSTM model, the vector involved in the final predicting process (the final hidden state) can be assumed to have the characteristics of this music sample (I will explain this in the following sections). Let's call this vector the "Characteristic-vector", namely, the "C-vector".
 
 
