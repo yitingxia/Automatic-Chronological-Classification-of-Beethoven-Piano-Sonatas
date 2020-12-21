@@ -33,7 +33,7 @@ Beethoven piano sonatas are converted into natural language sequences during the
 
 ![10-fold cross validation](https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/tab1.jpg =100x100)
 
-<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/tab1.jpg" width = "500" alt="" align=center/>
+<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/tab1.jpg" width = "300" alt="" align=center/>
 
 ![10-fold cross validation](https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/tab2.jpg width="30%")
 
