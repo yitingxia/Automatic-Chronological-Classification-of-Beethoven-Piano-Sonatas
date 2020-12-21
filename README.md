@@ -19,7 +19,7 @@ Similar data representation scheme in [12] is adopted to convert the MIDI files 
 - “\n” : The end of the music segment.
 For example, the first measure from Beethoven Piano Sonata No.9 in E Major (Op.14 No.1) movement 2, as illustrated in Fig. 1, can be transformed into the natural language sequence as follows:
 
-<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig1.jpg" width = "300" alt="A segment of Beethoven’s Piano Sonata can be converted into natural language sequences" align=center/>
+<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig1.png" width = "300" alt="A segment of Beethoven’s Piano Sonata can be converted into natural language sequences" align=center/>
 
 > t_80 v_64 d_quarter_1 n_47 v_64 d_half_1 n_50 v_64 d_half_1 n_54 v_64 d_quarter_1 n_59 . . . . . . v_64 d_eighth_0 n_46 v_64 d_eighth_0 n_58 . . v_64 d_quarter_0 n_47 v_64 d_quarter_0 n_59 . . . .
 
@@ -27,7 +27,7 @@ For example, the first measure from Beethoven Piano Sonata No.9 in E Major (Op.1
 ## mLSTM Model
 After pre-processing, MIDI files were converted into natural language sequences. Feeded by the character in the sequence of the current time step, the mLSTM model is trained to predict the character of the next time step. This is the training process of the mLSTM model. 
 
-<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig4.jpg" width = "300" alt="mLSTM Model" align=center/>
+<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig4.png" width = "300" alt="mLSTM Model" align=center/>
 
 It is notable that once the the model is well-trained, by passing a whole music sample (here it is a sequence of characters) into the trained mLSTM model, the vector involved in the final predicting process (the final hidden state) can be assumed to have the characteristics of this music sample (I will explain this in the following sections). Let's call this vector the "Characteristic-vector", namely, the "C-vector".
 
@@ -35,7 +35,7 @@ It is notable that once the the model is well-trained, by passing a whole music 
 ## Softmax Regression
 Beethoven piano sonatas are converted into natural language sequences during the pre-processiong process. Feeding into the trained mLSTM model above, several C-vectors are gained. Then these C-vectors are classified by Softmax regression. 
 
-<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig5.jpg" width = "300" alt="Using Softmax Regression as the classification model" align=center/>
+<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig5.png" width = "300" alt="Using Softmax Regression as the classification model" align=center/>
 
 The results are showed as follows.
 
@@ -53,14 +53,14 @@ We can see that the proposed mLSTM model with Softmax regression can achieve the
 ## Analysis
 Average C-vector: We calculate the average vector of the C-vectors generated from samples of each period (by averaging the elements of the corresponding positions in the vectors), and plot the histogram of the average C-vectors in blue, as shown in Fig. 6 below. The corresponding probably density curve of each average vector by kernel density estimation is also drawn, shown as orange solid lines. 
 
-<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig6.jpg" width = "300" alt="The histograms and probability density curves of averaged C-vector from samples of each period" align=center/>
+<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig6.png" width = "300" alt="The histograms and probability density curves of averaged C-vector from samples of each period" align=center/>
 
 
 The difference of the histogram of average C-vectors from each period is discernable. The middle period has the narrowest distribution, while the late period has the widest distribution. 
 
 The best test set (test set with the highest accuracy): 23 early samples, 22 middle samples and 24 late samples are correctly classified in the best test set. The histograms of the C-vectors from the same period are overlaid, and the probably density curves by kernel density estimation are drawn for each, the results are shown in Fig. 7.
 
-<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig6.jpg" width = "300" alt="The histograms and probability density curves of correctly classified samples in the best test set" align=center/>
+<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig6.png" width = "300" alt="The histograms and probability density curves of correctly classified samples in the best test set" align=center/>
 
 Seen from the histograms and the probably density curves of C-vectors of both average ones and the best test set, it is obvious that C-vectors from early period and middle period are more similarly distributed, while those of the late period show more differences. This can be explained that the sonatas from early and middle period are very similar in character, so it is a bit harder to distinguish between them. The sonatas from late period are very distinctive and easy to be separated. The confusion matrix in Table 2 also verify this as one early sample is wrongly classified as middle work and vice versa, while all late samples are correctly classified.
 
