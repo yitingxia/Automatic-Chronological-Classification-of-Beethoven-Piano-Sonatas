@@ -45,6 +45,8 @@ The results are showed as follows.
 
 ![10-fold cross validation](https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/tab2.jpg width="30%")
 
+<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/tab2.jpg" width = "300" alt="" align=center/>
+
 We can see that the proposed mLSTM model with Softmax regression can achieve the classification accuracy of 90% in average, which indicates that mLSTM model is effective in feature extraction, and the C-vectors do contain music characteristics. So what exactly is in the C-vector? I didn't figure this out, but we can have a closer look.
 
 
