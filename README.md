@@ -1,4 +1,5 @@
-# Automatic Chronological Classification of Beethoven's Piano Sonatas
+### This is a brief introduction of my work "Chronological Classification of Beethoven's Piano Sonatas Using Deep Learning Networks"
+
 <font size=12 >piano</font> 
 > Beethoven’s piano sonatas can be classified into early works, middle works and late works according to their composition periods. The process of  using deep learning networks to complete the chronological classification task are as follows:
 >
@@ -53,14 +54,14 @@ We can see that the proposed mLSTM model with Softmax regression can achieve the
 ## Analysis
 Average C-vector: We calculate the average vector of the C-vectors generated from samples of each period (by averaging the elements of the corresponding positions in the vectors), and plot the histogram of the average C-vectors in blue, as shown in Fig. 6 below. The corresponding probably density curve of each average vector by kernel density estimation is also drawn, shown as orange solid lines. 
 
-<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig6.png" width = "300" alt="The histograms and probability density curves of averaged C-vector from samples of each period" align=center/>
+<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig6.png" width = "500" alt="The histograms and probability density curves of averaged C-vector from samples of each period" align=center/>
 
 
 The difference of the histogram of average C-vectors from each period is discernable. The middle period has the narrowest distribution, while the late period has the widest distribution. 
 
 The best test set (test set with the highest accuracy): 23 early samples, 22 middle samples and 24 late samples are correctly classified in the best test set. The histograms of the C-vectors from the same period are overlaid, and the probably density curves by kernel density estimation are drawn for each, the results are shown in Fig. 7.
 
-<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig6.png" width = "300" alt="The histograms and probability density curves of correctly classified samples in the best test set" align=center/>
+<img src="https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/fig7.png" width = "500" alt="The histograms and probability density curves of correctly classified samples in the best test set" align=center/>
 
 Seen from the histograms and the probably density curves of C-vectors of both average ones and the best test set, it is obvious that C-vectors from early period and middle period are more similarly distributed, while those of the late period show more differences. This can be explained that the sonatas from early and middle period are very similar in character, so it is a bit harder to distinguish between them. The sonatas from late period are very distinctive and easy to be separated. The confusion matrix in Table 2 also verify this as one early sample is wrongly classified as middle work and vice versa, while all late samples are correctly classified.
 
