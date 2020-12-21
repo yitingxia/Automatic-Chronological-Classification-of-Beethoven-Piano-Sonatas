@@ -31,7 +31,7 @@ It is notable that once the the model is well-trained, by passing a whole music 
 ## Softmax Regression
 Beethoven piano sonatas are converted into natural language sequences during the pre-processiong process. Feeding into the trained mLSTM model above, several C-vectors are gained. Then these C-vectors are classified by Softmax regression. The results are showed as follows.
 
-![10-fold cross validation](https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/tab1.jpg =100x)
+![10-fold cross validation](https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/tab1.jpg =100x100)
 
 ![10-fold cross validation](https://github.com/yitingxia/Automatic-Chronological-Classification-of-Beethoven-Piano-Sonatas/blob/main/Supplements/tab2.jpg width="30%")
 
